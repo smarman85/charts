@@ -1,0 +1,46 @@
+{{ $envValues := index .Values .Values.env }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.name }}
+  labels:
+    app: {{ .Values.name }}
+  annotations:
+    app: {{ .Values.name }}
+spec:
+  {{ if $envValues.replicas }}
+  replicas: {{ $envValues.replicas }}
+  {{ else }}
+  replicas: {{ .Values.replicas }}
+  {{ end }}
+  selector:
+    matchLabels:
+      app: {{ .Values.name }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      name: {{ .Values.name }}
+      labels:
+        app: {{ .Values.name }}
+      annotations:
+        app: {{ .Values.name }}
+    spec:
+      containers:
+      - name: {{ .Values.name }}
+        image: smarman/{{ .Values.name }}:0.0.6
+        imagePullPolicy: Always
+          #livenessProbe:
+          #  httpGet:
+          #    path: /about
+          #    port: 8080
+          #  initialDelaySeconds: 5
+          #  periodSeconds: 60
+        ports:
+        - containerPort: {{ .Values.contPort }}
+        stdin: true
+        tty: true
+      restartPolicy: {{ .Values.restartPolicy }}

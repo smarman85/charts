@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.name }}-svc
+  labels:
+    app: {{ .Values.name }}
+spec:
+  ports:
+  - name: {{ .Values.SVCPort }}
+    port: {{ .Values.contPort }}
+    nodePort: {{ .Values.nodePort }}
+  selector:
+    app: {{ .Values.name }}
+  type: {{ .Values.portType }}

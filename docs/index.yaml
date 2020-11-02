@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  basicChart:
+  - apiVersion: v2
+    appVersion: "1.0"
+    created: 2020-11-01T21:37:54.270148-08:00
+    description: basicChart
+    digest: 42048346a905064211e8a0ea1860f51a9b323d1e59191b3ae1a68d8c1f0c7172
+    name: basicChart
+    urls:
+    - https://smarman85.github.io/charts/basicChart-0.0.1.tgz
+    version: 0.0.1
+generated: 2020-11-01T21:37:54.2693-08:00

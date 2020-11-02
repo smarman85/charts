@@ -1,0 +1,8 @@
+# Defaults
+replicas: 2
+
+homelab: 
+  replicas: 1
+
+live: 
+  replicas: 3
