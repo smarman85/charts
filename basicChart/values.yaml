@@ -9,8 +9,6 @@ SVCPort: http
 env: default
 entryPoint:
   - "/usr/bin/dumb-init"
-  - "/usr/bin/dumb-init"
-  - "/usr/bin/dumb-init"
 args:
   - "--"
   - "./goSite"
