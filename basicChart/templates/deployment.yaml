@@ -31,8 +31,16 @@ spec:
     spec:
       containers:
       - name: {{ .Values.name }}
-        image: smarman/{{ .Values.name }}:0.0.6
+        image: smarman/{{ .Values.name }}:{{ .Values.version }}
         imagePullPolicy: Always
+        command:
+          {{- range .Values.entryPoint }}
+          - {{ . | quote }}
+          {{- end }}
+        args:
+          {{- range .Values.args }}
+          - {{ . | quote }}
+          {{- end }}
           #livenessProbe:
           #  httpGet:
           #    path: /about

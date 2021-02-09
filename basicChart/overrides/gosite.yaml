@@ -6,3 +6,9 @@ homelab:
 
 live: 
   replicas: 3
+
+entryPoint:
+  - "/usr/bin/dumb-init"
+args:
+  - "--"
+  - "./goSite"

@@ -1,7 +1,14 @@
 name: gosite
 replicas: 1
+version: 0.0.6
 contPort: 8080
 nodePort: 30080
 portType: NodePort
 restartPolicy: Always
 SVCPort: http
+env: default
+entryPoint:
+  - "/usr/bin/dumb-init"
+args:
+  - "--"
+  - "./goSite"
