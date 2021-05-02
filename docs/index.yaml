@@ -3,16 +3,16 @@ entries:
   basicChart:
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-01-17T16:54:15.794429-08:00"
+    created: "2021-05-02T09:58:44.022344-07:00"
     description: basicChart
-    digest: f98cfd9dab2db8394ccfef01663fd95f23754758f30203a5bb75d909ea1171e9
+    digest: ee10c2ff6bc9db5036fcadde2a7ff14d0e0af9d4cf0725db62a958231fcc9cf0
     name: basicChart
     urls:
     - https://smarman85.github.io/charts/basicChart-0.0.3.tgz
     version: 0.0.3
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-01-17T16:54:15.793633-08:00"
+    created: "2021-05-02T09:58:44.02172-07:00"
     description: basicChart
     digest: 7252814095871b06d935a7573f91f5ffaec380bf73e7e77664ea12a52ad8571d
     name: basicChart
@@ -21,11 +21,11 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: "1.0"
-    created: "2021-01-17T16:54:15.79179-08:00"
+    created: "2021-05-02T09:58:44.021229-07:00"
     description: basicChart
     digest: 42048346a905064211e8a0ea1860f51a9b323d1e59191b3ae1a68d8c1f0c7172
     name: basicChart
     urls:
     - https://smarman85.github.io/charts/basicChart-0.0.1.tgz
     version: 0.0.1
-generated: "2021-01-17T16:54:15.79025-08:00"
+generated: "2021-05-02T09:58:44.020535-07:00"
