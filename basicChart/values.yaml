@@ -1,6 +1,6 @@
 name: gosite
 replicas: 1
-version: 0.0.6
+version: 0.0.7
 contPort: 8080
 nodePort: 30080
 portType: NodePort
