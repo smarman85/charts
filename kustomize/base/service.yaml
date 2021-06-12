@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: default
+  labels:
+    app: default
+spec:
+  ports:
+  - name: default
+    port: default
+    nodePort: default
+  selector:
+    app: default
+  type: default
