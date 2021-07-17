@@ -1,13 +1,13 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: default
+  name: dep
   labels:
     app: default
   annotations:
     app: default
 spec:
-  replicas: default
+  replicas: 1
   selector:
     matchLabels:
       app: default
@@ -18,7 +18,7 @@ spec:
     type: RollingUpdate
   template:
     metadata:
-      name: default
+      name: dep
       labels:
         app: default
       annotations:
@@ -26,7 +26,7 @@ spec:
     spec:
       containers:
       - name: default
-        image: smarman/default:default
+        image: default
         imagePullPolicy: Always
         command:
           - default
@@ -39,7 +39,7 @@ spec:
           #  initialDelaySeconds: 5
           #  periodSeconds: 60
         ports:
-        - containerPort: default
+        - containerPort: 8080
         stdin: true
         tty: true
-      restartPolicy: defaull
+      restartPolicy: Always

@@ -1,0 +1,80 @@
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    stage: base
+  labels:
+    app: gosite
+  name: gosite-svc
+spec:
+  ports:
+  - name: http
+    nodePort: 30080
+    port: 8080
+  selector:
+    app: gosite
+    stage: base
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    app: gosite
+    stage: base
+  labels:
+    app: gosite
+    stage: base
+  name: gosite-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gosite
+      stage: base
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        app: default
+        stage: base
+      labels:
+        app: gosite
+        stage: base
+      name: dep
+    spec:
+      containers:
+      - args:
+        - default
+        command:
+        - default
+        image: default
+        imagePullPolicy: Always
+        name: default
+        ports:
+        - containerPort: 8080
+        stdin: true
+        tty: true
+      restartPolicy: Always
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    stage: base
+  labels:
+    app: gosite
+    stage: base
+  name: gosite-ing
+spec:
+  rules:
+  - host: gosite.local.seanhome.xyz
+    http:
+      paths:
+      - backend:
+          serviceName: gosite
+          servicePort: http
+        path: /

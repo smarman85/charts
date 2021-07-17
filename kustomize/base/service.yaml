@@ -1,14 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: default
-  labels:
-    app: default
+  name: svc
 spec:
-  ports:
-  - name: default
-    port: default
-    nodePort: default
   selector:
     app: default
-  type: default
+  ports:
+  - port: 0
+    targetPort: 0

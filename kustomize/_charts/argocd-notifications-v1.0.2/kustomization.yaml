@@ -1,0 +1,6 @@
+
+namespace: argocd
+resources:
+- argocd-notfications-v1.0.2.yaml
+patchesStrategicMerge:
+- argocd-notfications-catalog-v1.0.2.yaml

@@ -1,13 +1,36 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+namePrefix: gosite-
 
+#namespace: gosite
 commonLabels:
   app: gosite
 
 resources:
-- ../../clusters/homelab
+- ../../../base
 
 images:
-  - name: gosite
-    newName: smarman/gosite
-    newTag: 0.0.8
+- name: gosite
+  newName: smarman/gosite
+  newTag: 0.0.8
+
+patches:
+  - target:
+      kind: Service
+      name: svc
+    path: patch-svc.yaml
+  - target:
+      kind: Deployment
+      name: dep
+    path: patch-deployment.yaml
+  - target:
+      kind: Ingress
+      name: ing
+    path: patch-ingress.yaml
+
+      
+    #patch: |-
+    #  - op: add
+    #    path: /metadata/labels
+    #    value:
+    #      some: junk

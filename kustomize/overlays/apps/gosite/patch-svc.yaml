@@ -1,0 +1,10 @@
+- op: add
+  path: /metadata/labels
+  vaule: 
+    some: junk
+- op: add
+  path: /spec/ports
+  value:
+    - name: http
+      port: 8080
+      nodePort: 30080
