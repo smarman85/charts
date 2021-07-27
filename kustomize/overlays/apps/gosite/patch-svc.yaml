@@ -1,7 +1,7 @@
 - op: add
-  path: /metadata/labels
-  vaule: 
-    some: junk
+  path: /spec
+  value: 
+    type: NodePort
 - op: add
   path: /spec/ports
   value:

@@ -9,3 +9,9 @@ resources:
   - namespace.yaml
   - ../../../_charts/argocd-v2.0.4
   - ../../../_charts/argocd-notifications-v1.0.2
+
+patches:
+  - target:
+      kind: ConfigMap
+      name: argocd-notifications-cm
+    path: ./patch-notifications.yaml

@@ -1,3 +1,22 @@
 - op: add
   path: /metadata/annotations/app
   value: gosite
+- op: remove
+  path: /spec/template/spec/containers/0
+- op: add
+  path: /spec/template/metadata/annotations/app
+  value: gosite
+- op: add
+  path: /spec/template/metadata/name
+  value: gosite
+- op: add
+  path: /spec/template/spec/containers/0
+  value:
+    name: gosite
+    image: smarman/gosite:0.0.7
+    command: ['./init/app']
+    imagePullPolicy: Always
+    ports: 
+    - containerPort: 8080
+    stdin: true
+    tty: true

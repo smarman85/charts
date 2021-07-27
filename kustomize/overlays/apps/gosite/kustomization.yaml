@@ -9,11 +9,6 @@ commonLabels:
 resources:
 - ../../../base
 
-images:
-- name: gosite
-  newName: smarman/gosite
-  newTag: 0.0.8
-
 patches:
   - target:
       kind: Service
@@ -28,6 +23,10 @@ patches:
       name: ing
     path: patch-ingress.yaml
 
+images:
+- name: gosite
+  newName: smarman/gosite
+  newTag: 0.0.8
       
     #patch: |-
     #  - op: add

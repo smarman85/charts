@@ -5,6 +5,7 @@ metadata:
     stage: base
   labels:
     app: gosite
+    stage: base
   name: gosite-svc
 spec:
   ports:
@@ -13,7 +14,7 @@ spec:
     port: 8080
   selector:
     app: gosite
-    stage: base
+  type: NodePort
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -39,21 +40,19 @@ spec:
   template:
     metadata:
       annotations:
-        app: default
+        app: gosite
         stage: base
       labels:
         app: gosite
         stage: base
-      name: dep
+      name: gosite
     spec:
       containers:
-      - args:
-        - default
-        command:
-        - default
-        image: default
+      - command:
+        - ./init/app
+        image: smarman/gosite:0.0.7
         imagePullPolicy: Always
-        name: default
+        name: gosite
         ports:
         - containerPort: 8080
         stdin: true

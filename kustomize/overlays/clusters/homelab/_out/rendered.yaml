@@ -2886,6 +2886,8 @@ metadata:
 ---
 apiVersion: v1
 data:
+  service.slack: |
+    token: $slack-token
   template.app-deployed: |
     email:
       subject: New version of an application {{.app.metadata.name}} is up and running.
@@ -3099,7 +3101,7 @@ data:
       send:
       - app-sync-status-unknown
       when: app.status.sync.status == 'Unknown'
-  trigger.on-sync-succeeded: |
+  trigger.on-sync-succeeded: |-
     - description: Application syncing has succeeded
       send:
       - app-sync-succeeded
